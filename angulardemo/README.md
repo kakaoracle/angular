@@ -20,3 +20,17 @@ app.component.ts--------------js
 app.component.html------------html
 app.component.css-------------css
 webstorm中可以直接创建一个component(组件,含三个默认文件),class(类,pojo),service(方法)
+## angular父子组件通信
+@Input()
+hero:Hero;
+<app-hero-detail [hero] = "selectedHero"></app-hero-detail>
+## angular服务
+步骤一：定义一个服务，用到的地方，coontrustor中进行实例化
+步骤二：用到的地方写一个方法调用服务中的方法;
+getHeroes(): void {
+                         this.heroes = this.heroService.getHeroes();
+                       }
+步骤三：用到的地方，在ngonInit中调用自己刚刚定义的方法
+
+
+
