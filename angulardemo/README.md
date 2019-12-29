@@ -32,5 +32,45 @@ getHeroes(): void {
                        }
 步骤三：用到的地方，在ngonInit中调用自己刚刚定义的方法
 
+但是问题是，用到的地方默认在调用服务的时候，服务是能够同步返回数据的，但是由于服务器响应零延迟不可能实现。
+因此需要实现一种机制，必须数据取到后，应用页面才进行响应显示：
+服务：
+getHeroes():Observable<Hero[]>{
+    return of(HEROES);
+  }
+
+调用服务：
+getHeroes(): void {
+    //this.heroes = this.heroService.getHeroes()
+    this.heroService.getHeroes()
+      .subscribe(heroes=>this.heroes = heroes);
+}
+
+
+
+#### 服务中调用服务
+上面调用的地方需要三步，实例化，写个方法调用服务的方法，初始化时调用这个方法，复杂且无用
+不如直接使用服务中的方法，至于实例化，只要声明时是public的就可以
+hero.service中调用message服务：
+constructor(private messagesService:MessagesService) { }
+  getHeroes():Observable<Hero[]>{
+    this.messagesService.add("HeroService: fetched heroes");
+    return of(HEROES);
+  }
+
+constructor(public messageService:MessagesService) { }//用public来声明
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
