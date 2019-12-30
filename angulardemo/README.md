@@ -60,6 +60,15 @@ constructor(private messagesService:MessagesService) { }
 
 constructor(public messageService:MessagesService) { }//用public来声明
 
+### 路由
+const routes: Routes = [{
+  path:'heroes',component:HeroesComponent
+}];
+设定了页面地址，但是用户不会在地址栏上加上这个，而是会从超链接点击过去
+需要设置：
+<nav>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
 
 
 
