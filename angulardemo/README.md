@@ -1,4 +1,5 @@
 # Angular教程
+
 ## nodejs的安装
 windows上直接安装默认添加到环境变量里
 mac上安装步骤：
@@ -11,6 +12,7 @@ mac上安装步骤：
 export NODE_HOME="/usr/local"
 export PATH=$PATH:$NODE_HOME/bin
 完毕。
+
 ## 创建并启动一个应用
 创建应用:ng new 项目名
 启动应用:ng serve --open:open用来启动浏览器
@@ -20,6 +22,9 @@ app.component.ts--------------js
 app.component.html------------html
 app.component.css-------------css
 webstorm中可以直接创建一个component(组件,含三个默认文件),class(类,pojo),service(方法)
+如果右键后没有的话,就用命令创建,比如ng generate service/class/component InMemoryDataService
+
+
 ## angular父子组件通信
 @Input()
 hero:Hero;
@@ -72,7 +77,10 @@ const routes: Routes = [{
 
 
 
-
+### 错误
+1. 'ng' is not recognized as an internal or external command  
+解决方法:ng不是npm自带的命令,是angularcli框架中的命令,不识别的话需要安装框架:
+npm install -g @angular/cli
 
 
 
