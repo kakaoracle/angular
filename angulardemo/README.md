@@ -1,4 +1,7 @@
 # Angular教程
+## 常见问题
+1. #var,#的作用是模板引用变量
+
 
 ## nodejs的安装
 windows上直接安装默认添加到环境变量里
@@ -65,7 +68,7 @@ constructor(private messagesService:MessagesService) { }
 
 constructor(public messageService:MessagesService) { }//用public来声明
 
-### 路由
+## 路由
 const routes: Routes = [{
   path:'heroes',component:HeroesComponent
 }];
@@ -75,15 +78,42 @@ const routes: Routes = [{
   <a routerLink="/heroes">Heroes</a>
 </nav>
 
+## HTTPClient
+1. 安装内存api组件:npm install angular-in-memory-web-api --save
+2. 主入口app.module.ts中import:HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
+3. InMemoryDataService是自己建立的内存数据库服务名,implments InMemoryDbService
+4. 在其中的createDB方法中,createDb(){const heroes = [].....},整个InMemoryDataService称为api,通过url为api/自己定义的变量名(比如)  
+heroes就能直接访问到
+5. 
 
 
-### 错误
+## subscribe
+```
+//方法1.订阅的返回值就是下面给出的值
+getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes=>this.heroes = heroes);
+  }
+//方法2.被调用的服务的方法
+getHeroes():Observable<Hero[]>{
+    return this.http.get<Hero[]>(this.heroesUrl)
+  }
+```
+方法2是将所有的返回值都送到中间件Observable中
+方法1是通过subscribe实时监听observable中heroes的值是否为空,不为则进行处理
+
+## HTTPClient
+1. tap方法:
+
+
+
+## 错误
 1. 'ng' is not recognized as an internal or external command  
 解决方法:ng不是npm自带的命令,是angularcli框架中的命令,不识别的话需要安装框架:
 npm install -g @angular/cli
 
-
-
+## 问题
+1. 将dashboard中的click事件改成一个route-link,怎样不跳转而是当前页面展现一个类似的弹窗操作?
 
 
 
