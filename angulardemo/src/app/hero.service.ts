@@ -7,7 +7,7 @@ import {HttpClient, HttpHeaders,} from "@angular/common/http";
 import {catchError,map,tap} from "rxjs/internal/operators";
 
 
-//HeroService 可以从任何地方获取英雄的数据：Web 服务、本地存储（LocalStorage）或一个模拟的数据源。
+
 
 @Injectable({
   providedIn: 'root'
@@ -27,7 +27,7 @@ export class HeroService {
     headers: new HttpHeaders({'Content-Type':'application/json'})
   }
 
-    //获取某一个英雄的详细信息
+  // 获取某一个英雄的详细信息
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url)
@@ -56,12 +56,12 @@ export class HeroService {
 
 
   //新增一个方法
-  addHero(hero: Hero):Observable<Hero>{
+  /*addHero(hero: Hero):Observable<Hero>{
     return this.http.post<Hero>(this.heroesUrl,hero,this.httpOptions).pipe(
-      tap(newHero:Hero)=>this.log(`added hero w/ id=${newHero.id}`),
+      tap(newHero:Hero)=>this.log(`added hero w/ id=${newHero.id}`)
       catchError(this.handleError<Hero>(`addHero`))
     )
-  }
+  }*/
 
 
 

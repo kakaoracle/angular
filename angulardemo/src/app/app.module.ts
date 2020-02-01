@@ -11,6 +11,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import {HttpClientInMemoryWebApiModule} from "angular-in-memory-web-api";
 import {HttpClientModule} from "@angular/common/http";
 import {InMemoryDataService} from "./in-memory-data.service";
+import { EChartsComponent } from './e-charts/e-charts.component';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import {InMemoryDataService} from "./in-memory-data.service";
     HeroDetailComponent,
     MessageComponent,
     DashboardComponent,
+    EChartsComponent,
 
   ],
     imports: [
@@ -27,8 +30,9 @@ import {InMemoryDataService} from "./in-memory-data.service";
         FormsModule,
         HttpClientModule,
         HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
+        NgxEchartsModule
     ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
