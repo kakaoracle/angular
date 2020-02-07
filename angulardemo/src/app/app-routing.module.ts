@@ -4,14 +4,16 @@ import {HeroesComponent} from "./heroes/heroes.component";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {HeroDetailComponent} from "./hero-detail/hero-detail.component";
 import {EChartsComponent} from "./e-charts/e-charts.component";
+import {ObservableComponent} from "./observable/observable.component";
 
 
-const routes: Routes = [{
-  path: 'heroes', component: HeroesComponent},
+const routes: Routes = [
+  {path: 'heroes', component: HeroesComponent},
   {path:'dashBoard',component: DashboardComponent},
   {path: 'detail/:id',component: HeroDetailComponent},
   {path: 'eCharts',component: EChartsComponent},
-  {path:'',redirectTo:'/dashBoard',pathMatch:'full'}
+  {path:'',redirectTo:'/dashBoard',pathMatch:'full'},
+  {path: 'observable',component: ObservableComponent}
 ];
 
 @NgModule({

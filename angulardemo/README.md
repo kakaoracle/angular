@@ -115,7 +115,8 @@ npm install -g @angular/cli
 ## 问题
 1. 将dashboard中的click事件改成一个route-link,怎样不跳转而是当前页面展现一个类似的弹窗操作?
 
-
+2. 有的时候修改样式不生效？
+angular有优先级最高的内联选择器文件，就是styles.scss,比id，class优先级都高
 
 
 

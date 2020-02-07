@@ -13,6 +13,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {InMemoryDataService} from "./in-memory-data.service";
 import { EChartsComponent } from './e-charts/e-charts.component';
 import {NgxEchartsModule} from 'ngx-echarts';
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {NgxEchartsModule} from 'ngx-echarts';
     MessageComponent,
     DashboardComponent,
     EChartsComponent,
+    ObservableComponent,
 
   ],
     imports: [
