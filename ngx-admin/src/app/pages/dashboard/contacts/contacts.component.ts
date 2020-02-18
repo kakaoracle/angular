@@ -3,6 +3,7 @@ import { takeWhile } from 'rxjs/operators';
 import { forkJoin } from 'rxjs';
 
 import { Contacts, RecentUsers, UserData } from '../../../@core/data/users';
+import {stringify} from 'querystring';
 
 @Component({
   selector: 'ngx-contacts',
@@ -23,6 +24,7 @@ export class ContactsComponent implements OnDestroy {
     )
       .pipe(takeWhile(() => this.alive))
       .subscribe(([contacts, recent]: [Contacts[], RecentUsers[]]) => {
+        window.console.log('=====contacts:' + stringify(contacts)+',recent: '+ stringify(recent));
         this.contacts = contacts;
         this.recent = recent;
       });
